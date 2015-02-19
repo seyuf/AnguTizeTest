@@ -1,0 +1,24 @@
+<div ng-controller="EAProductsCtrl" class="container">
+  <div class="row">
+  <div class="col col-md-4">
+    <div data-angular-treeview="true" data-tree-id="mytree" data-tree-model="categories" data-node-id="id" data-node-label="Name" data-node-children="items" >
+    </div>
+  </div>
+  <div class="col col-md-8">
+    <div class="" ng-show="mytree.currentNode.ProductID">
+    <p> <a class="btn btn-success"  data-toggle="modal" data-target="#saveProductModal" >Edit</a></p>
+     <p> Name: {{mytree.currentNode.Name}}</p>
+     <p> ProductNumber: {{mytree.currentNode.ProductNumber}}</p>
+     <p> Category: {ProductCategory}</p>
+     <p> SafetyStockLevel: {{mytree.currentNode.SafetyStockLevel}}</p>
+     <p> Size : {{mytree.currentNode.Size}} </p>
+     <p> SellStartDate : {{mytree.currentNode.SellStartDate}}</p>
+     <p> SellEndDate : {{mytree.currentNode.SellEndDate}}</p>
+     <img ng-src="http://www.aspectize.com/AdventureWorks/ProductionService.LoadImage.bin.cmd.ashx?productId={{mytree.currentNode.ProductID}}"/>
+    </div>
+    <p ng-show="!mytree.currentNode.ProductID">curent list {{mytree.currentNode}} </p>
+  </div>
+  </div>
+<div ng-include src="'views/productSave.html'"></div>
+</div>
+
